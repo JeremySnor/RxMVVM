@@ -9,6 +9,8 @@
 import Foundation
 
 public enum NavigationType {
+    case undefined
+    
     case root 
     
     case dismiss

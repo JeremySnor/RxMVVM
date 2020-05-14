@@ -31,6 +31,7 @@ public class Navigator {
         DispatchQueue.main.async {
             let navigationAction = route.navigationAction
             switch navigationAction.navigationType {
+            case .undefined: break
             case .root: root(navigationAction.destinationController!)
             case .dismiss: dismiss()
                 
