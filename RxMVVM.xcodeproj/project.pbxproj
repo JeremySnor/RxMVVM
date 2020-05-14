@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		36890B7546D21EADA945619F /* Pods_RxMVVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBB6AC80B9468DFC5FFD4CC1 /* Pods_RxMVVM.framework */; };
+		3F125BA7246DB9CA005B61C3 /* SystemActionConstructorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F125BA6246DB9CA005B61C3 /* SystemActionConstructorType.swift */; };
+		3F125BA9246DB9EE005B61C3 /* ActivityConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F125BA8246DB9EE005B61C3 /* ActivityConstructor.swift */; };
+		3F125BAB246DB9FE005B61C3 /* AlertConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F125BAA246DB9FE005B61C3 /* AlertConstructor.swift */; };
+		3F125BAD246DBA1A005B61C3 /* DocumentInteractionConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F125BAC246DBA1A005B61C3 /* DocumentInteractionConstructor.swift */; };
+		3F125BAF246DBA2D005B61C3 /* MediaPickerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F125BAE246DBA2D005B61C3 /* MediaPickerConstructor.swift */; };
+		3F125BB1246DBA5F005B61C3 /* SafariConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F125BB0246DBA5F005B61C3 /* SafariConstructor.swift */; };
+		3F125BB3246DBA86005B61C3 /* VideoPlayerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F125BB2246DBA86005B61C3 /* VideoPlayerConstructor.swift */; };
 		3F777F1A2468636B00244D4C /* CollectionViewConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F777F192468636B00244D4C /* CollectionViewConnector.swift */; };
 		3F777F1E2468677B00244D4C /* YesMarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F777F1C2468677B00244D4C /* YesMarkTableViewCell.swift */; };
 		3F777F1F2468677B00244D4C /* YesMarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F777F1D2468677B00244D4C /* YesMarkTableViewCell.xib */; };
@@ -100,6 +107,13 @@
 		129BB76CD9286AD1FD4604DC /* Pods-RxMVVM-RxMVVMTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMVVM-RxMVVMTests.debug.xcconfig"; path = "Target Support Files/Pods-RxMVVM-RxMVVMTests/Pods-RxMVVM-RxMVVMTests.debug.xcconfig"; sourceTree = "<group>"; };
 		175E8D858A17687384D868B4 /* Pods-RxMVVMExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMVVMExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-RxMVVMExampleTests/Pods-RxMVVMExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		26800CAE0619DBA0E149FE15 /* Pods-RxMVVMExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxMVVMExampleTests.release.xcconfig"; path = "Target Support Files/Pods-RxMVVMExampleTests/Pods-RxMVVMExampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		3F125BA6246DB9CA005B61C3 /* SystemActionConstructorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemActionConstructorType.swift; sourceTree = "<group>"; };
+		3F125BA8246DB9EE005B61C3 /* ActivityConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityConstructor.swift; sourceTree = "<group>"; };
+		3F125BAA246DB9FE005B61C3 /* AlertConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConstructor.swift; sourceTree = "<group>"; };
+		3F125BAC246DBA1A005B61C3 /* DocumentInteractionConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentInteractionConstructor.swift; sourceTree = "<group>"; };
+		3F125BAE246DBA2D005B61C3 /* MediaPickerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerConstructor.swift; sourceTree = "<group>"; };
+		3F125BB0246DBA5F005B61C3 /* SafariConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariConstructor.swift; sourceTree = "<group>"; };
+		3F125BB2246DBA86005B61C3 /* VideoPlayerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerConstructor.swift; sourceTree = "<group>"; };
 		3F777F192468636B00244D4C /* CollectionViewConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewConnector.swift; sourceTree = "<group>"; };
 		3F777F1C2468677B00244D4C /* YesMarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesMarkTableViewCell.swift; sourceTree = "<group>"; };
 		3F777F1D2468677B00244D4C /* YesMarkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YesMarkTableViewCell.xib; sourceTree = "<group>"; };
@@ -110,7 +124,7 @@
 		3F777F29246869D400244D4C /* MarksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarksViewModel.swift; sourceTree = "<group>"; };
 		3F777F2B24686B4C00244D4C /* MarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarksViewController.swift; sourceTree = "<group>"; };
 		3F777F2E246871E000244D4C /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
-		3F777F30246875B800244D4C /* RxMVVM.podspec */ = {isa = PBXFileReference; lastKnownFileType = file; path = RxMVVM.podspec; sourceTree = SOURCE_ROOT; };
+		3F777F30246875B800244D4C /* RxMVVM.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RxMVVM.podspec; sourceTree = SOURCE_ROOT; };
 		3F777F322468763E00244D4C /* License */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = License; sourceTree = "<group>"; };
 		3FB154F62466A58700EA65D3 /* RxMVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RxMVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB154F92466A58700EA65D3 /* RxMVVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RxMVVM.h; sourceTree = "<group>"; };
@@ -206,6 +220,20 @@
 				EF9B8B64C6C0A05D64C690B2 /* Pods_RxMVVMExampleTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3F125BA5246DB9B8005B61C3 /* SystemActions */ = {
+			isa = PBXGroup;
+			children = (
+				3F125BA6246DB9CA005B61C3 /* SystemActionConstructorType.swift */,
+				3F125BA8246DB9EE005B61C3 /* ActivityConstructor.swift */,
+				3F125BAA246DB9FE005B61C3 /* AlertConstructor.swift */,
+				3F125BAC246DBA1A005B61C3 /* DocumentInteractionConstructor.swift */,
+				3F125BAE246DBA2D005B61C3 /* MediaPickerConstructor.swift */,
+				3F125BB0246DBA5F005B61C3 /* SafariConstructor.swift */,
+				3F125BB2246DBA86005B61C3 /* VideoPlayerConstructor.swift */,
+			);
+			path = SystemActions;
 			sourceTree = "<group>";
 		};
 		3F777F1B2468674100244D4C /* Blocks */ = {
@@ -310,6 +338,7 @@
 		3FB155362466A91000EA65D3 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				3F125BA5246DB9B8005B61C3 /* SystemActions */,
 				3FB1557024672C8300EA65D3 /* UICollections */,
 				3FB155522466B96200EA65D3 /* Navigation */,
 				3FB1554B2466B75A00EA65D3 /* Extensions */,
@@ -725,18 +754,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FB155422466AB3200EA65D3 /* ViewModel.swift in Sources */,
+				3F125BA9246DB9EE005B61C3 /* ActivityConstructor.swift in Sources */,
 				3FB1553B2466A99200EA65D3 /* ViewModelProtocol.swift in Sources */,
 				3FB1557224674D3200EA65D3 /* TableViewCelll.swift in Sources */,
 				3FB15576246761A800EA65D3 /* TableViewConnector.swift in Sources */,
+				3F125BAF246DBA2D005B61C3 /* MediaPickerConstructor.swift in Sources */,
 				3FB155542466C43100EA65D3 /* NavigationType.swift in Sources */,
 				3FB155562466C44A00EA65D3 /* NavigationAction.swift in Sources */,
+				3F125BA7246DB9CA005B61C3 /* SystemActionConstructorType.swift in Sources */,
 				3FB155512466B87200EA65D3 /* NavigationRouteType.swift in Sources */,
 				3FB1554F2466B84C00EA65D3 /* Navigator.swift in Sources */,
+				3F125BB3246DBA86005B61C3 /* VideoPlayerConstructor.swift in Sources */,
 				3FB1553D2466AABB00EA65D3 /* CellProtocol.swift in Sources */,
+				3F125BAB246DB9FE005B61C3 /* AlertConstructor.swift in Sources */,
 				3FB155392466A96000EA65D3 /* ViewProtocol.swift in Sources */,
 				3F777F1A2468636B00244D4C /* CollectionViewConnector.swift in Sources */,
 				3FB155472466B48000EA65D3 /* ViewController.swift in Sources */,
+				3F125BB1246DBA5F005B61C3 /* SafariConstructor.swift in Sources */,
 				3FB1557424675B9000EA65D3 /* CollectionViewCell.swift in Sources */,
+				3F125BAD246DBA1A005B61C3 /* DocumentInteractionConstructor.swift in Sources */,
 				3FB1553F2466AAD300EA65D3 /* CellBlockProtocol.swift in Sources */,
 				3FB1554A2466B65300EA65D3 /* UIViewController+Rx.swift in Sources */,
 				3FB1554D2466B76800EA65D3 /* UIWindow.swift in Sources */,
