@@ -13,6 +13,7 @@ public enum NavigationType {
     
     case root 
     
+    case modal 
     case dismiss
     
     case push

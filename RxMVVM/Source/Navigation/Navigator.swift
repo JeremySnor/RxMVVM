@@ -33,6 +33,8 @@ public class Navigator {
             switch navigationAction.navigationType {
             case .undefined: break
             case .root: root(navigationAction.destinationController!)
+                
+            case .modal: modal(navigationAction.destinationController!)
             case .dismiss: dismiss()
                 
             case .push: push(navigationAction.destinationController!)
@@ -49,6 +51,10 @@ public class Navigator {
     
     private static func root(_ controller: UIViewController) {
         window?.rootViewController = controller
+    }
+    
+    private static func modal(_ controller: UIViewController) {
+        window?.rootViewController?.present(controller, animated: true)
     }
     
     private static func push(_ controller: UIViewController) {
