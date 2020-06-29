@@ -54,7 +54,7 @@ public class Navigator {
     }
     
     private static func modal(_ controller: UIViewController) {
-        window?.rootViewController?.present(controller, animated: true)
+        (visibleController?.navigationController ?? visibleController)?.present(controller, animated: true)
     }
     
     private static func push(_ controller: UIViewController) {
