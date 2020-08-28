@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "RxMVVM"
-  spec.version      = "0.1.2"
+  spec.version      = "0.1.3"
   spec.summary      = "Simple Rx based MVVM implementation"
 
   # This description is used to generate tags and improve search results.

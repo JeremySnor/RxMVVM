@@ -14,10 +14,10 @@ public protocol SystemActionConstructorType { }
 public extension SystemActionConstructorType {
     
     var visibleController: UIViewController! {
-        guard let delegate = UIApplication.shared.delegate, let window = delegate.window else {
+        guard let delegate = UIApplication.shared.delegate as? NavigationAppDelegate else {
             return nil
         }
-        guard let visibleController = window?.visibleViewController() else {
+        guard let visibleController = delegate.navigationWindow.visibleViewController() else {
             return nil
         }
         return visibleController
