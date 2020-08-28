@@ -15,7 +15,6 @@
 		3F125BAF246DBA2D005B61C3 /* MediaPickerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F125BAE246DBA2D005B61C3 /* MediaPickerConstructor.swift */; };
 		3F125BB1246DBA5F005B61C3 /* SafariConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F125BB0246DBA5F005B61C3 /* SafariConstructor.swift */; };
 		3F125BB3246DBA86005B61C3 /* VideoPlayerConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F125BB2246DBA86005B61C3 /* VideoPlayerConstructor.swift */; };
-		3F5A79CD24F937D400FACFC5 /* NavigationAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A79CC24F937D400FACFC5 /* NavigationAppDelegate.swift */; };
 		3F777F1A2468636B00244D4C /* CollectionViewConnector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F777F192468636B00244D4C /* CollectionViewConnector.swift */; };
 		3F777F1E2468677B00244D4C /* YesMarkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F777F1C2468677B00244D4C /* YesMarkTableViewCell.swift */; };
 		3F777F1F2468677B00244D4C /* YesMarkTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F777F1D2468677B00244D4C /* YesMarkTableViewCell.xib */; };
@@ -115,7 +114,6 @@
 		3F125BAE246DBA2D005B61C3 /* MediaPickerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaPickerConstructor.swift; sourceTree = "<group>"; };
 		3F125BB0246DBA5F005B61C3 /* SafariConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariConstructor.swift; sourceTree = "<group>"; };
 		3F125BB2246DBA86005B61C3 /* VideoPlayerConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerConstructor.swift; sourceTree = "<group>"; };
-		3F5A79CC24F937D400FACFC5 /* NavigationAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAppDelegate.swift; sourceTree = "<group>"; };
 		3F777F192468636B00244D4C /* CollectionViewConnector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewConnector.swift; sourceTree = "<group>"; };
 		3F777F1C2468677B00244D4C /* YesMarkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YesMarkTableViewCell.swift; sourceTree = "<group>"; };
 		3F777F1D2468677B00244D4C /* YesMarkTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YesMarkTableViewCell.xib; sourceTree = "<group>"; };
@@ -384,7 +382,6 @@
 				3FB1554E2466B84C00EA65D3 /* Navigator.swift */,
 				3FB155532466C43100EA65D3 /* NavigationType.swift */,
 				3FB155552466C44A00EA65D3 /* NavigationAction.swift */,
-				3F5A79CC24F937D400FACFC5 /* NavigationAppDelegate.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -766,7 +763,6 @@
 				3FB155562466C44A00EA65D3 /* NavigationAction.swift in Sources */,
 				3F125BA7246DB9CA005B61C3 /* SystemActionConstructorType.swift in Sources */,
 				3FB155512466B87200EA65D3 /* NavigationRouteType.swift in Sources */,
-				3F5A79CD24F937D400FACFC5 /* NavigationAppDelegate.swift in Sources */,
 				3FB1554F2466B84C00EA65D3 /* Navigator.swift in Sources */,
 				3F125BB3246DBA86005B61C3 /* VideoPlayerConstructor.swift in Sources */,
 				3FB1553D2466AABB00EA65D3 /* CellProtocol.swift in Sources */,

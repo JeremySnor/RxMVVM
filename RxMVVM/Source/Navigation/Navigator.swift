@@ -11,10 +11,9 @@ import UIKit
 
 public class Navigator {
     
-    private static var window: UIWindow?
+    private(set) static var window: UIWindow?
     
     private static var visibleController: UIViewController! {
-        let window = self.window ?? (UIApplication.shared.delegate as? NavigationAppDelegate)?.navigationWindow
         guard let visibleController = window?.visibleViewController() else {
             return nil
         }
