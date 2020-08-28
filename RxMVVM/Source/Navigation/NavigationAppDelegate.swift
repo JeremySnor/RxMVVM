@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol NavigationAppDelegate: UIApplicationDelegate {
+public protocol NavigationAppDelegate: UIApplicationDelegate {
     
     var navigationWindow: UIWindow { get }
     
