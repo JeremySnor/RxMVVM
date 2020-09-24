@@ -34,6 +34,10 @@ public class AlertConstructor: SystemActionConstructorType {
         }))
         return self
     }
+    public func addTextField(configurationHandler: ((UITextField) -> Void)?) -> AlertConstructor {
+        self.alertController.addTextField(configurationHandler: configurationHandler)
+        return self
+    }
     
     public func result() -> Single<String> {
         present(controller: alertController)
