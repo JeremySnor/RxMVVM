@@ -58,7 +58,11 @@ public class Navigator {
     }
     
     private static func push(_ controller: UIViewController) {
-        visibleController?.navigationController?.pushViewController(controller, animated: true)
+        if let searchController = visibleController as? UISearchController {
+            searchController.presentingViewController?.navigationController?.pushViewController(controller, animated: true)
+        } else {
+            visibleController?.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     private static func pushAndReplace(_ controller: UIViewController) {
