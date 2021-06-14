@@ -19,6 +19,8 @@ class StartViewController: ViewController<StartViewModel> {
     @IBOutlet weak var openLoadingButton: UIButton!
     @IBOutlet weak var openTablesButton: UIButton!
     
+    @IBOutlet weak var useChainButton: UIButton!
+    
     override func bind(viewModel: ViewController<StartViewModel>.ViewModel) {
         
         rx.didAppear.bind(to: viewModel.controllerDidAppear).disposed(by: disposeBag)
@@ -32,6 +34,8 @@ class StartViewController: ViewController<StartViewModel> {
         
         openLoadingButton.rx.tap.map({ NavigationRoutes.loading }).bind(to: rx.navigation).disposed(by: disposeBag)
         openTablesButton.rx.tap.map({ NavigationRoutes.marks }).bind(to: rx.navigation).disposed(by: disposeBag)
+        
+        useChainButton.rx.tap.bind(to: viewModel.useChain).disposed(by: disposeBag)
         
         super.bind(viewModel: viewModel)
     }

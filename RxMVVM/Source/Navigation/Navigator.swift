@@ -11,10 +11,12 @@ import UIKit
 
 public class Navigator {
     
+    public typealias Completion = () -> Void
+    
     private(set) static var window: UIWindow?
     
     private static var visibleController: UIViewController! {
-        guard let visibleController = window?.visibleViewController() else {
+        guard let visibleController = self.window?.visibleViewController() else {
             return nil
         }
         return visibleController
@@ -27,70 +29,183 @@ public class Navigator {
         root(route.navigationAction.destinationController!)
     }
     
-    public static func navigate(route: NavigationRouteType) {
+    public static func navigateChainOf(routes: NavigationRouteType..., completion: Completion? = nil) {
+        Self.navigateChainOf(routes: routes, completion: completion)
+    }
+    
+    public static func navigateChainOf(routes: [NavigationRouteType], completion: Completion? = nil) {
+        var remainingRoutes = routes
+        
+        guard !remainingRoutes.isEmpty else {
+            completion?()
+            return
+        }
+        
+        let nextRoute = remainingRoutes.removeFirst()
+        Self.navigate(route: nextRoute, completion: {
+            Self.navigateChainOf(routes: remainingRoutes, completion: completion)
+        })
+    }
+    
+    public static func navigate(route: NavigationRouteType, completion: Completion? = nil) {
         DispatchQueue.main.async {
             let navigationAction = route.navigationAction
+            
             switch navigationAction.navigationType {
-            case .undefined: break
-            case .root: root(navigationAction.destinationController!)
+            case .undefined:
+                break
                 
-            case .modal: modal(navigationAction.destinationController!)
-            case .dismiss: dismiss()
+            case .root:
+                self.root(navigationAction.destinationController!)
+                completion?()
                 
-            case .push: push(navigationAction.destinationController!)
-            case .pushAndReplace: pushAndReplace(navigationAction.destinationController!)
+            case .modal:
+                if route.navigationAction.animated {
+                    Self.handleAnimatedCompletion(of: {
+                        Self.modal(navigationAction.destinationController!, animated: true)
+                    }, completion: {
+                        completion?()
+                    })
+                } else {
+                    Self.modal(navigationAction.destinationController!, animated: false)
+                    completion?()
+                }
                 
-            case .pop: pop()
-            case let .popCount(count): pop(count: count)
-            case .popToRoot: popToRoot()
+            case .dismiss:
+                self.dismiss(animated: navigationAction.animated,
+                             completion: completion)
                 
-            case let .changeTab(index): changeTab(tabIndex: index)
+            case .push:
+                if route.navigationAction.animated {
+                    Self.handleAnimatedCompletion(of: {
+                        Self.push(navigationAction.destinationController!, animated: true)
+                    }, completion: {
+                        completion?()
+                    })
+                } else {
+                    Self.push(navigationAction.destinationController!, animated: false)
+                    completion?()
+                }
+                
+            case .pushAndReplace:
+                if route.navigationAction.animated {
+                    Self.handleAnimatedCompletion(of: {
+                        Self.pushAndReplace(navigationAction.destinationController!, animated: true)
+                    }, completion: {
+                        completion?()
+                    })
+                } else {
+                    Self.pushAndReplace(navigationAction.destinationController!, animated: false)
+                    completion?()
+                }
+                
+            case .pop:
+                if route.navigationAction.animated {
+                    Self.handleAnimatedCompletion(of: {
+                        Self.pop(animated: true)
+                    }, completion: {
+                        completion?()
+                    })
+                } else {
+                    Self.pop(animated: false)
+                    completion?()
+                }
+                
+            case let .popCount(count):
+                if route.navigationAction.animated {
+                    Self.handleAnimatedCompletion(of: {
+                        Self.pop(count: count, animated: true)
+                    }, completion: {
+                        completion?()
+                    })
+                } else {
+                    self.pop(count: count, animated: false)
+                    completion?()
+                }
+                
+            case .popToRoot:
+                if route.navigationAction.animated {
+                    Self.handleAnimatedCompletion(of: {
+                        Self.popToRoot(animated: true)
+                    }, completion: {
+                        completion?()
+                    })
+                } else {
+                    Self.popToRoot(animated: false)
+                    completion?()
+                }
+                
+            case let .changeTab(index):
+                self.changeTab(tabIndex: index)
+                completion?()
             }
         }
     }
     
-    private static func root(_ controller: UIViewController) {
-        window?.rootViewController = controller
+}
+
+fileprivate extension Navigator {
+        
+    static func handleAnimatedCompletion(of navigation: @escaping () -> Void,
+                                         completion: @escaping Completion) {
+        CATransaction.begin()
+        CATransaction.setCompletionBlock({
+            completion()
+        })
+        navigation()
+        CATransaction.commit()
     }
     
-    private static func modal(_ controller: UIViewController) {
-        (visibleController?.navigationController ?? visibleController)?.present(controller, animated: true)
+    static func root(_ controller: UIViewController) {
+        self.window?.rootViewController = controller
     }
     
-    private static func push(_ controller: UIViewController) {
-        if let searchController = visibleController as? UISearchController {
-            searchController.presentingViewController?.navigationController?.pushViewController(controller, animated: true)
+    static func modal(_ controller: UIViewController, animated: Bool = true, completion: Completion? = nil) {
+        guard let controller = self.visibleController?.navigationController ?? self.visibleController else {
+            return
+        }
+        controller.present(controller,
+                           animated: animated,
+                           completion: completion)
+    }
+    
+    static func push(_ controller: UIViewController, animated: Bool = true) {
+        if let searchController = self.visibleController as? UISearchController {
+            searchController.presentingViewController?.navigationController?.pushViewController(controller, animated: animated)
         } else {
-            visibleController?.navigationController?.pushViewController(controller, animated: true)
+            self.visibleController?.navigationController?.pushViewController(controller, animated: animated)
         }
     }
     
-    private static func pushAndReplace(_ controller: UIViewController) {
-        if var controllers = visibleController?.navigationController?.viewControllers {
+    static func pushAndReplace(_ controller: UIViewController, animated: Bool = true) {
+        if var controllers = self.visibleController?.navigationController?.viewControllers {
             controllers.removeLast()
             controllers.append(controller)
-            visibleController?.navigationController?.setViewControllers(controllers, animated: true)
+            self.visibleController?.navigationController?.setViewControllers(controllers, animated: animated)
         }
     }
     
-    private static func pop() {
-        visibleController?.navigationController?.popViewController(animated: true)
+    static func pop(animated: Bool = true) {
+        self.visibleController?.navigationController?.popViewController(animated: animated)
     }
-    private static func pop(count: Int) {
-        if let viewControllers = visibleController?.navigationController?.viewControllers {
+    
+    static func pop(count: Int, animated: Bool = true) {
+        if let viewControllers = self.visibleController?.navigationController?.viewControllers {
             let targetIndex = max(0, viewControllers.count - count - 1)
-            visibleController?.navigationController?.popToViewController(viewControllers[targetIndex], animated: true)
+            self.visibleController?.navigationController?.popToViewController(viewControllers[targetIndex], animated: animated)
         }
     }
-    private static func popToRoot() {
-        visibleController?.navigationController?.popToRootViewController(animated: true)
+    
+    static func popToRoot(animated: Bool = true) {
+        self.visibleController?.navigationController?.popToRootViewController(animated: animated)
     }
     
-    private static func dismiss() {
-        visibleController?.dismiss(animated: true)
+    static func dismiss(animated: Bool = true, completion: Completion? = nil) {
+        self.visibleController?.dismiss(animated: animated, completion: completion)
     }
-    private static func changeTab(tabIndex: Int) {
-        visibleController?.tabBarController?.selectedIndex = tabIndex
+    
+    static func changeTab(tabIndex: Int) {
+        self.visibleController?.tabBarController?.selectedIndex = tabIndex
     }
     
 }

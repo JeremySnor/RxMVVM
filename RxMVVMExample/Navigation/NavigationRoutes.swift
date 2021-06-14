@@ -32,7 +32,7 @@ enum NavigationRoutes: NavigationRouteType {
                 return UINavigationController(rootViewController: self.instantiateController(StartViewController.self, storyboardName: "Main", viewModel: StartViewModel()))
             }
         case let .detailWithText(text):
-            return NavigationAction.create(navigationType: .push) {
+            return NavigationAction.create(navigationType: .push, animated: false) {
                 return self.instantiateController(DetailViewController.self, storyboardName: "Main", viewModel: DetailViewModel(detail: text))
             }
         case .loading:

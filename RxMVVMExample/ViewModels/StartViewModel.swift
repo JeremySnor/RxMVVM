@@ -15,6 +15,7 @@ class StartViewModel: ViewModel {
     let pushHello = PublishSubject<Void>()
     let pushWorld = PublishSubject<Void>()
     let pushHelloWorld = PublishSubject<Void>()
+    let useChain = PublishSubject<Void>()
     
     let controllerWillAppear = PublishSubject<Void>()
     let controllerDidAppear = PublishSubject<Void>()
@@ -29,6 +30,14 @@ class StartViewModel: ViewModel {
             .bind(to: navigation).disposed(by: disposeBag)
         pushHelloWorld.map({ NavigationRoutes.detailWithText(text: "HELLO WORLD") }).debug("Navigation")
             .bind(to: navigation).disposed(by: disposeBag)
+        
+        useChain.bind(onNext: {
+            Navigator.navigateChainOf(routes: NavigationRoutes.detailWithText(text: "HELLO"),
+                                      NavigationRoutes.detailWithText(text: "WORLD"),
+                                      NavigationRoutes.detailWithText(text: "HELLO WORLD"), completion: {
+                                        print("CHAIN COMPLETED")
+                                      })
+        }).disposed(by: disposeBag)
         
         controllerWillAppear.debug("StartViewController WillAppear").subscribe().disposed(by: disposeBag)
         controllerDidAppear.debug("StartViewController DidAppear").subscribe().disposed(by: disposeBag)
