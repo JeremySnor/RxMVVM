@@ -161,12 +161,9 @@ fileprivate extension Navigator {
     }
     
     static func modal(_ controller: UIViewController, animated: Bool = true, completion: Completion? = nil) {
-        guard let controller = self.visibleController?.navigationController ?? self.visibleController else {
-            return
-        }
-        controller.present(controller,
-                           animated: animated,
-                           completion: completion)
+        (self.visibleController?.navigationController ?? self.visibleController)?.present(controller,
+                                                                                          animated: animated,
+                                                                                          completion: completion)
     }
     
     static func push(_ controller: UIViewController, animated: Bool = true) {
