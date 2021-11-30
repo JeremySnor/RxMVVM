@@ -60,7 +60,7 @@ public class Navigator {
                 completion?()
                 
             case .modal:
-                if route.navigationAction.animated {
+                if navigationAction.animated {
                     Self.handleAnimatedCompletion(of: {
                         Self.modal(navigationAction.destinationController!, animated: true)
                     }, completion: {
@@ -76,7 +76,7 @@ public class Navigator {
                              completion: completion)
                 
             case .push:
-                if route.navigationAction.animated {
+                if navigationAction.animated {
                     Self.handleAnimatedCompletion(of: {
                         Self.push(navigationAction.destinationController!, animated: true)
                     }, completion: {
@@ -88,7 +88,7 @@ public class Navigator {
                 }
                 
             case .pushAndReplace:
-                if route.navigationAction.animated {
+                if navigationAction.animated {
                     Self.handleAnimatedCompletion(of: {
                         Self.pushAndReplace(navigationAction.destinationController!, animated: true)
                     }, completion: {
@@ -100,7 +100,7 @@ public class Navigator {
                 }
                 
             case .pop:
-                if route.navigationAction.animated {
+                if navigationAction.animated {
                     Self.handleAnimatedCompletion(of: {
                         Self.pop(animated: true)
                     }, completion: {
@@ -112,7 +112,7 @@ public class Navigator {
                 }
                 
             case let .popCount(count):
-                if route.navigationAction.animated {
+                if navigationAction.animated {
                     Self.handleAnimatedCompletion(of: {
                         Self.pop(count: count, animated: true)
                     }, completion: {
@@ -124,7 +124,7 @@ public class Navigator {
                 }
                 
             case .popToRoot:
-                if route.navigationAction.animated {
+                if navigationAction.animated {
                     Self.handleAnimatedCompletion(of: {
                         Self.popToRoot(animated: true)
                     }, completion: {
@@ -181,6 +181,10 @@ fileprivate extension Navigator {
             self.visibleController?.navigationController?.setViewControllers(controllers, animated: animated)
         }
     }
+    
+}
+
+public extension Navigator {
     
     static func pop(animated: Bool = true) {
         self.visibleController?.navigationController?.popViewController(animated: animated)
